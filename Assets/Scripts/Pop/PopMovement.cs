@@ -47,8 +47,8 @@ public class PopMovement : MonoBehaviour
         m_velocity += new Vector3(horz * horzMult, 0.0f, vert * vertMult) * m_acceleration * Time.deltaTime;
         if (m_velocity.sqrMagnitude > m_sqrTopSpeed) m_velocity = m_velocity.normalized * m_topSpeed;
 
-        if (horz == 0.0f && Mathf.Abs(m_velocity.x) > 0.001f) m_velocity.x -= Mathf.Sign(m_velocity.x) * m_acceleration * Time.deltaTime;
-        if (vert == 0.0f && Mathf.Abs(m_velocity.z) > 0.001f) m_velocity.z -= Mathf.Sign(m_velocity.z) * m_acceleration * Time.deltaTime;
+        if (horz == 0.0f && Mathf.Abs(m_velocity.x) > 0.01f) m_velocity.x -= Mathf.Sign(m_velocity.x) * m_acceleration * Time.deltaTime;
+        if (vert == 0.0f && Mathf.Abs(m_velocity.z) > 0.01f) m_velocity.z -= Mathf.Sign(m_velocity.z) * m_acceleration * Time.deltaTime;
 
         m_rigidBody.AddForce(m_velocity, ForceMode.Force);
     }
